@@ -5,11 +5,19 @@ The **Quinary Calculator** is a calculator application that works with **base-5 
 It looks and functions like a standard calculator but is restricted to quinary input and operations.
 
 ---
+# Team Members and Designated Tasks:
+Jaydon: html & CSS 
+Kyle: html & CSS
+Campbell: node.js, Calculator functions
+Alli: node.js, Calculator functions
+CJ: Writing and automating tests, writing tutorial and submission
+
+
 
 ## Features & Requirements
 
 ### High Priority
-- 🔢 Only **5 buttons for numbers**: `0`, `1`, `2`, `3`, `4`.
+- 🔢 Only **5 buttons for numbers**: `0`, `1`, `2`, '3', `4`.
 - ➕➖✖️➗ Supports **two-number operations**:
   - Enter a quinary number.
   - Press an operation button (`+`, `-`, `×`, `÷`).

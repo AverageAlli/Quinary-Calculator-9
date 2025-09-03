@@ -5,6 +5,11 @@ The **Quinary Calculator** is a calculator application that works with **base-5 
 It looks and functions like a standard calculator but is restricted to quinary input and operations.
 
 ---
+## Tutorial
+First, notice that this is a quinary calculator and is limited to base 5 results. 
+
+To use the calculator, first enter in the first operand of your choosing. Next, press the operator of your choosing. After that, enter in the second operand of your choosing. Finally, press the enter button to get the quinary result of your entries. 
+
 # Team Members and Designated Tasks:
 Jaydon: html & CSS 
 Kyle: html & CSS

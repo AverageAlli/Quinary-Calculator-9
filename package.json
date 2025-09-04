@@ -1,0 +1,18 @@
+{
+  "name": "quinary-calculator-9",
+  "version": "1.0.0",
+  "description": "## Overview The **Quinary Calculator** is a calculator application that works with base-5 integers (digits `0–4`).   It looks and functions like a standard calculator but is restricted to quinary input and operations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.1.3"
+  }
+}

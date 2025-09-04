@@ -10,14 +10,18 @@ First, notice that this is a quinary calculator and is limited to base 5 results
 
 To use the calculator, first enter in the first operand of your choosing. Next, press the operator of your choosing. After that, enter in the second operand of your choosing. Finally, press the enter button to get the quinary result of your entries. 
 
-# Team Members and Designated Tasks:
+## Team Members and Designated Tasks:
 Jaydon: html & CSS 
 Kyle: html & CSS
 Campbell: node.js, Calculator functions
 Alli: node.js, Calculator functions
 CJ: Writing and automating tests, writing tutorial and submission
 
-
+## Team Meetings and Discussion
+Meeting time: RB 3rd Floor Collab Room
+Time: 6:15
+All members present. 
+Discussed prioritization of requirements, UI design, team member responsibilities.  
 
 ## Features & Requirements
 

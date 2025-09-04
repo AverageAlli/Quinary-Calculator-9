@@ -51,3 +51,8 @@ describe('calculate' , () => {
         expect(calculate('44', '22', '/', 'd')).toBe(2)
     });
 });
+describe('calculate', () => {
+    test("Should throw error for dividing by 0", () => {
+        expect(() => calculate('13', '0', '/', 'd')).toThrow()
+    });
+});

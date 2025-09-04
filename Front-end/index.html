@@ -4,13 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="theme-overrides.css"/>
+    <title>Quinary Calculator</title>
   </head>
   <body>
     <div>
       <h1>Quinary Calculator</h1>
       <div class="container">
+
+        <div class="modeRow">
+          <span>View result as:</span>
+          <label>
+            <select id="viewMode" aria-label="Result display base">
+              <option value="5" selected>Quinary (base-5)</option>
+              <option value="10">Decimal (base-10)</option>
+            </select>
+          </label>
+        </div>
+
         <div class="screen" id="display"></div>
+
         <div class="buttonsContainer">
           <button class="clear" id="clearButton">C</button>
           <button class="operation" id="division">÷</button>
@@ -28,8 +41,7 @@
         </div>
       </div>
     </div>
-
-    <script>
+    <script defer src="app.js">
       const display = document.getElementById("display");
       let currentExpression = "";
 

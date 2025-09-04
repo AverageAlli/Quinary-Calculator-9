@@ -1,0 +1,111 @@
+:root{
+  --bg: #0f1115;
+  --panel: #171a21;
+  --text: #e9efff;
+  --muted: #9fb2d8;
+
+  --btn: #283348;
+  --btn-hover: #313e58;
+  --op: #8ea2c9;
+  --accent: #4f8cff;
+  --danger: #ff5f6d;
+
+  --ring: rgba(79, 140, 255, 0.55);
+  --shadow: 0 12px 32px rgba(0,0,0,.35);
+  --radius: 16px;
+}
+
+body{
+  background:
+    radial-gradient(900px 600px at 10% -10%, #202b4a 0%, transparent 60%),
+    radial-gradient(900px 600px at 110% 110%, #1a2e26 0%, transparent 60%),
+    var(--bg);
+  color: var(--text);
+}
+
+.container{
+  background: linear-gradient(180deg, var(--panel), #121824);
+  border: 1px solid #20283a;
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  max-width: 380px;
+}
+
+
+.screen{
+  background: linear-gradient(180deg, #0d121c, #0a0f19);
+  border: 1px solid #232c40;
+  border-radius: calc(var(--radius) - 6px);
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+
+.buttonsContainer{
+  margin-top: 12px;
+}
+
+
+button{
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  border: 0;
+  border-radius: 12px;
+  background: var(--btn);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 14px 0;
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.03);
+  transition: transform .05s ease, background .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+button:hover{ background: var(--btn-hover); }
+button:active{ transform: translateY(1px); }
+button:focus-visible{
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--ring), inset 0 0 0 1px rgba(255,255,255,.06);
+}
+
+
+.operation{
+  background: linear-gradient(180deg, #2a344a, #232c40);
+  color: var(--op);
+}
+.equal{
+  background: linear-gradient(180deg, #2f66ff, #2a52d2);
+  color: #fff;
+  font-weight: 800;
+}
+.equal:hover{ filter: brightness(1.04); }
+
+.clear{
+  background: linear-gradient(180deg, #5f1d2a, #4a1722);
+  color: #ffd5db;
+}
+.clear:hover{ filter: brightness(1.03); }
+
+
+.modeRow{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0 10px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.modeRow select{
+  background: #0f1624;
+  color: var(--text);
+  border: 1px solid #22304b;
+  border-radius: 10px;
+  padding: 6px 10px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.03);
+}
+.modeRow select:focus-visible{
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--ring);
+}

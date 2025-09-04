@@ -1,7 +1,7 @@
 # Quinary Calculator
 
 ## Overview
-The **Quinary Calculator** is a calculator application that works with **base-5 numbers** (digits `0–4`).  
+The **Quinary Calculator** is a calculator application that works with base-5 integers (digits `0–4`).  
 It looks and functions like a standard calculator but is restricted to quinary input and operations.
 
 ---
@@ -22,7 +22,7 @@ CJ: Writing and automating tests, writing tutorial and submission
 ## Features & Requirements
 
 ### High Priority
-- 🔢 Only **5 buttons for numbers**: `0`, `1`, `2`, '3', `4`.
+- Only **5 buttons for numbers**: `0`, `1`, `2`, `3`, `4`.
 - ➕➖✖️➗ Supports **two-number operations**:
   - Enter a quinary number.
   - Press an operation button (`+`, `-`, `×`, `÷`).

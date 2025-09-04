@@ -4,32 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="theme-overrides.css"/>
+    <title>Quinary Calculator</title>
   </head>
   <body>
     <div>
       <h1>Quinary Calculator</h1>
       <div class="container">
-        <div class="screen" id="display">0</div>
+
+        <div class="modeRow">
+          <span>View result as:</span>
+          <label>
+            <select id="viewMode" aria-label="Result display base">
+              <option value="5" selected>Quinary (base-5)</option>
+              <option value="10">Decimal (base-10)</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="screen" id="display"></div>
+
         <div class="buttonsContainer">
-          <button class="clear">C</button>
-          <button class="operation">÷</button>
-          <button class="operation">×</button>
-          <button class="operation">−</button>
+          <button class="clear" id="clearButton">C</button>
+          <button class="operation" id="division">÷</button>
+          <button class="operation" id="multiplication">×</button>
+          <button class="operation" id="subtract">−</button>
 
-          <button id="button4" onclick="">4</button>
-          <button>3</button>
-          <button>2</button>
-          <button class="operation">+</button>
+          <button id="button4">4</button>
+          <button id="button3">3</button>
+          <button id="button2">2</button>
+          <button class="operation" id="plus">+</button>
 
-          <button>1</button>
-          <button>0</button>
-          <button class="equal">=</button>
+          <button id="button1">1</button>
+          <button id="button0">0</button>
+          <button class="equal" id="equal">=</button>
         </div>
       </div>
     </div>
-    <script>
         
-    </script>
+    <script defer src="app.js"></script>
   </body>
 </html>

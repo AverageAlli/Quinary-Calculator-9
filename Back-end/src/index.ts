@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const calcRoutes = require("./routes/route");
+const calcRoutes = require("./routes/route.js");
 
 app.use(express.json()); 
 app.use("/api/calc", calcRoutes);

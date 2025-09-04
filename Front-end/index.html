@@ -4,14 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="theme-overrides.css"/>
+    <link rel="stylesheet" href="theme-overrides.css" />
     <title>Quinary Calculator</title>
   </head>
   <body>
     <div>
       <h1>Quinary Calculator</h1>
       <div class="container">
-
         <div class="modeRow">
           <span>View result as:</span>
           <label>
@@ -104,28 +103,39 @@
         .getElementById("division")
         .addEventListener("click", () => appendOperator("÷"));
 
-      document.getElementById("equal").addEventListener("click", async function () {
-        if (!currentExpression) {
-            return
-        };
+      async function calculate(num1, num2, operator, base) {
+        const opMap = { "+": "add", "-": "sub", "x": "mult", "÷": "div" };
+        const route = `/api/calc/${opMap[operator]}_${base}`;
+
+        const res = await fetch(route, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ num1: Number(num1), num2: Number(num2) }),
+        });
+
+        const data = await res.json();
+        return data.result ?? data.result_before_convert;
+      }
+
+      document.getElementById("equal").addEventListener("click", async () => {
+        if (!currentExpression) return;
+
+        const base = document.getElementById("viewMode").value;
+
+        const match = currentExpression.match(/(\d+)([+\-x÷])(\d+)/);
+        if (!match) {
+          display.textContent = "Error";
+          currentExpression = "";
+          return;
+        }
+
+        const [, num1, operator, num2] = match;
 
         try {
-          const response = await fetch("/calculate", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ expression: currentExpression }),
-          });
-
-          const data = await response.json();
-
-          if (data.result !== undefined) {
-            currentExpression = data.result;
-            display.textContent = currentExpression;
-          } else {
-            display.textContent = "Error";
-            currentExpression = "";
-          }
-        } catch (error) {
+          const result = await calculate(num1, num2, operator, base);
+          currentExpression = result;
+          display.textContent = result;
+        } catch (err) {
           display.textContent = "Error";
           currentExpression = "";
         }

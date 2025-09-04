@@ -5,37 +5,24 @@
  * @param {string} str
  * @returns {boolean}
  */
-function isValidQuinary(str) {
+function isValidQuinary(str: any) {
   return /^[0-4]+$/.test(str);
-}
 }
 
 // Helper: Convert quinary string to decimal integer
-/**
- * @param {string} str
- * @returns {number}
- */
-function quinaryToDecimal(str) {
+function quinaryToDecimal(str: any) {
   return parseInt(str, 5);
 }
 
 
 // Helper: Convert decimal integer to quinary string
-/**
- * @param {number} num
- * @returns {string}
- */
-function decimalToQuinary(num) {
+function decimalToQuinary(num: any) {
   return num.toString(5);
 }
 
 
 // Two-number operations
-/**
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
-exports.add = function (req, res) {
+exports.add = function (req: any, res: any) {
   const { num1, num2 } = req.body;
   if (!isValidQuinary(num1) || !isValidQuinary(num2)) {
     return res.status(400).json({ error: 'Inputs must be valid quinary numbers (digits 0-4).' });
@@ -49,13 +36,9 @@ exports.add = function (req, res) {
     num2: { quinary: num2, decimal: dec2 },
     result: { quinary: resultQuinary, decimal: resultDec }
   });
-}
+};
 
-/**
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
-exports.subtract = function (req, res) {
+exports.subtract = function (req: any, res: any) {
   const { num1, num2 } = req.body;
   if (!isValidQuinary(num1) || !isValidQuinary(num2)) {
     return res.status(400).json({ error: 'Inputs must be valid quinary numbers (digits 0-4).' });
@@ -69,13 +52,9 @@ exports.subtract = function (req, res) {
     num2: { quinary: num2, decimal: dec2 },
     result: { quinary: resultQuinary, decimal: resultDec }
   });
-}
+};
 
-/**
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
-exports.multiply = function (req, res) {
+exports.multiply = function (req: any, res: any) {
   const { num1, num2 } = req.body;
   if (!isValidQuinary(num1) || !isValidQuinary(num2)) {
     return res.status(400).json({ error: 'Inputs must be valid quinary numbers (digits 0-4).' });
@@ -89,13 +68,9 @@ exports.multiply = function (req, res) {
     num2: { quinary: num2, decimal: dec2 },
     result: { quinary: resultQuinary, decimal: resultDec }
   });
-}
+};
 
-/**
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
-exports.divide = function (req, res) {
+exports.divide = function (req: any, res: any) {
   const { num1, num2 } = req.body;
   if (!isValidQuinary(num1) || !isValidQuinary(num2)) {
     return res.status(400).json({ error: 'Inputs must be valid quinary numbers (digits 0-4).' });
@@ -112,14 +87,10 @@ exports.divide = function (req, res) {
     num2: { quinary: num2, decimal: dec2 },
     result: { quinary: resultQuinary, decimal: resultDec }
   });
-}
+};
 
 // One-number operations
-/**
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
-exports.square = function (req, res) {
+exports.square = function (req: any, res: any) {
   const { num1 } = req.body;
   if (!isValidQuinary(num1)) {
     return res.status(400).json({ error: 'Input must be a valid quinary number (digits 0-4).' });
@@ -131,13 +102,9 @@ exports.square = function (req, res) {
     num1: { quinary: num1, decimal: dec1 },
     result: { quinary: resultQuinary, decimal: resultDec }
   });
-}
+};
 
-/**
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
-exports.squareRoot = function (req, res) {
+exports.squareRoot = function (req: any, res: any) {
   const { num1 } = req.body;
   if (!isValidQuinary(num1)) {
     return res.status(400).json({ error: 'Input must be a valid quinary number (digits 0-4).' });
@@ -152,4 +119,4 @@ exports.squareRoot = function (req, res) {
     num1: { quinary: num1, decimal: dec1 },
     result: { quinary: resultQuinary, decimal: root }
   });
-}
+};

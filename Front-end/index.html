@@ -10,26 +10,114 @@
     <div>
       <h1>Quinary Calculator</h1>
       <div class="container">
-        <div class="screen" id="display">0</div>
+        <div class="screen" id="display"></div>
         <div class="buttonsContainer">
-          <button class="clear">C</button>
-          <button class="operation">÷</button>
-          <button class="operation">×</button>
-          <button class="operation">−</button>
+          <button class="clear" id="clearButton">C</button>
+          <button class="operation" id="division">÷</button>
+          <button class="operation" id="multiplication">×</button>
+          <button class="operation" id="subtract">−</button>
 
-          <button id="button4" onclick="">4</button>
-          <button>3</button>
-          <button>2</button>
-          <button class="operation">+</button>
+          <button id="button4">4</button>
+          <button id="button3">3</button>
+          <button id="button2">2</button>
+          <button class="operation" id="plus">+</button>
 
-          <button>1</button>
-          <button>0</button>
-          <button class="equal">=</button>
+          <button id="button1">1</button>
+          <button id="button0">0</button>
+          <button class="equal" id="equal">=</button>
         </div>
       </div>
     </div>
+
     <script>
-        
+      const display = document.getElementById("display");
+      let currentExpression = "";
+
+      function appendNumber(num) {
+        currentExpression += num;
+        display.textContent = currentExpression;
+      }
+
+      function appendOperator(operator) {
+        const lastChar = currentExpression.slice(-1);
+
+        if (currentExpression === "" && operator !== "-") {
+          return;
+        }
+
+        if (
+          lastChar === "+" ||
+          lastChar === "-" ||
+          lastChar === "x" ||
+          lastChar === "÷"
+        ) {
+          currentExpression = currentExpression.slice(0, -1) + operator;
+        } else {
+          currentExpression += operator;
+        }
+        display.textContent = currentExpression;
+      }
+
+      document.getElementById("clearButton").addEventListener("click", () => {
+        currentExpression = "";
+        display.textContent = "";
+      });
+
+      document.getElementById("button0").addEventListener("click", () => {
+        appendNumber("0");
+      });
+      document.getElementById("button1").addEventListener("click", () => {
+        appendNumber("1");
+      });
+      document.getElementById("button2").addEventListener("click", () => {
+        appendNumber("2");
+      });
+      document.getElementById("button3").addEventListener("click", () => {
+        appendNumber("3");
+      });
+      document.getElementById("button4").addEventListener("click", () => {
+        appendNumber("4");
+      });
+
+      document
+        .getElementById("plus")
+        .addEventListener("click", () => appendOperator("+"));
+      document
+        .getElementById("subtract")
+        .addEventListener("click", () => appendOperator("-"));
+      document
+        .getElementById("multiplication")
+        .addEventListener("click", () => appendOperator("x"));
+      document
+        .getElementById("division")
+        .addEventListener("click", () => appendOperator("÷"));
+
+      document.getElementById("equal").addEventListener("click", async function () {
+        if (!currentExpression) {
+            return
+        };
+
+        try {
+          const response = await fetch("/calculate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ expression: currentExpression }),
+          });
+
+          const data = await response.json();
+
+          if (data.result !== undefined) {
+            currentExpression = data.result;
+            display.textContent = currentExpression;
+          } else {
+            display.textContent = "Error";
+            currentExpression = "";
+          }
+        } catch (error) {
+          display.textContent = "Error";
+          currentExpression = "";
+        }
+      });
     </script>
   </body>
 </html>

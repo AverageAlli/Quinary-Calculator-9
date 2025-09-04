@@ -1,12 +1,8 @@
 const express = require("express");
-
 const app = express();
-const PORT = 3000;
+const calcRoutes = require("./routes/route");
 
-app.get("/", (req: any, res: { send: (arg0: string) => void; }) => {
-  res.send("Hello TypeScript Backend!");
-});
+app.use(express.json()); 
+app.use("/api/calc", calcRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+app.listen(3000, () => console.log("Server running on http://localhost:3000"));
